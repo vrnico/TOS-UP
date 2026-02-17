@@ -20,7 +20,6 @@ We're building this together (you know who you are 😏). Here's how to get invo
 
 ```bash
 git clone https://github.com/vrnico/TOS-UP.git
-cd TOS-SparkNotes
 ```
 
 ### 3. Make Your Own Branch
