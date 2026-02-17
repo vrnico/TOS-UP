@@ -19,7 +19,7 @@ We're building this together (you know who you are 😏). Here's how to get invo
 ### 2. Clone the Repo
 
 ```bash
-git clone [https://github.com/<owner>/TOS-SparkNotes](https://github.com/vrnico/TOS-UP).git
+git clone https://github.com/vrnico/TOS-UP.git
 cd TOS-SparkNotes
 ```
 
