@@ -1,25 +1,26 @@
-# TOS-Up
+# TOS SparkNotes
 
 **Wikipedia for Terms of Service. Rotten Tomatoes for Big Tech.**
 
-TOS Up is a community-driven app that breaks down Terms of Service and Privacy Policies into plain language so regular people can actually understand what they're agreeing to. Built on Supabase.
+TOS SparkNotes is a community-driven app that breaks down Terms of Service and Privacy Policies into plain language so regular people can actually understand what they're agreeing to. Built on Supabase.
 
 ---
 
 ## Want to Contribute?
 
-We're building this together (you know who you are 😏). Here's how to get involved:
+We're building this together. Here's how to get involved:
 
 ### 1. Get Added as a Collaborator
 
-- DM **neek** 
-- Send your **GitHub username** and or the **email tied to your GitHub account**
+- DM **neek** on Discord (or wherever you found this project)
+- Send your **GitHub username** or the **email tied to your GitHub account**
 - You'll get a collaborator invite to the repo -- accept it
 
 ### 2. Clone the Repo
 
 ```bash
 git clone https://github.com/vrnico/TOS-UP.git
+cd TOS-UP
 ```
 
 ### 3. Make Your Own Branch

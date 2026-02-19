@@ -1,0 +1,10 @@
+node_modules/
+server/database/tos.db
+*.db-wal
+*.db-shm
+.DS_Store
+Thumbs.db
+day2-outline.md
+day2-slides.html
+day3-outline.md
+day3-slides.html

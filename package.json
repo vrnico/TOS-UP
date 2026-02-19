@@ -1,0 +1,29 @@
+{
+  "name": "tos-sparknotes",
+  "version": "2.0.0",
+  "description": "A Wikipedia-like reference site for Terms of Service analysis",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "seed": "node server/database/seed.js",
+    "dev": "node --watch server/index.js"
+  },
+  "keywords": [
+    "tos",
+    "terms-of-service",
+    "privacy",
+    "analysis"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "cookie-session": "^2.1.0",
+    "express": "^4.18.2",
+    "playwright": "^1.58.2"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "author": "",
+  "type": "commonjs"
+}

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOS SparkNotes — ELO Battle Arena</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a1a;
+    --bg-card: #12122a;
+    --bg-surface: #0e0e24;
+    --text: #e0e0f0;
+    --text-dim: #8888aa;
+    --accent: #a78bfa;
+    --accent-2: #818cf8;
+    --red: #ef4444;
+    --orange: #f97316;
+    --yellow: #eab308;
+    --green: #22c55e;
+    --cyan: #06b6d4;
+    --type-privacy: #3b82f6;
+    --type-creator: #22c55e;
+    --type-transparency: #f59e0b;
+    --type-safety: #a855f7;
+    --type-accountability: #ef4444;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ============ TOP BAR ============ */
+  .top-bar {
+    background: var(--bg-surface);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .top-bar h1 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .top-bar-stats {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .stat-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    background: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .stat-chip strong { color: var(--accent); }
+
+  .reset-btn {
+    background: none;
+    border: 1px solid rgba(239,68,68,0.3);
+    color: var(--red);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .reset-btn:hover { background: rgba(239,68,68,0.1); }
+
+  /* ============ LAYOUT ============ */
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+
+  .question-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .question-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .question-header p {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+  }
+
+  .matchup-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  /* ============ BATTLEFIELD BANNER ============ */
+  .battlefield-banner {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: var(--bg-card);
+  }
+
+  .battlefield-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+
+  .battlefield-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  .battlefield-desc {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* ============ BATTLE ARENA ============ */
+  .arena {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 16px;
+  }
+
+  .battle-card {
+    background: var(--bg-card);
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 28px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .battle-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(167,139,250,0.15);
+  }
+
+  .battle-card:active { transform: translateY(-2px); }
+
+  .battle-card.winner-flash {
+    border-color: var(--green);
+    box-shadow: 0 0 30px rgba(34,197,94,0.2);
+  }
+
+  .battle-card.loser-flash {
+    border-color: var(--red);
+    opacity: 0.6;
+  }
+
+  /* Company color swatch */
+  .card-color-bar {
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+  }
+
+  .card-elo {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.04);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .card-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+
+  .card-type-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+
+  .card-summary {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+
+  .card-flags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .flag-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: rgba(239,68,68,0.12);
+    color: var(--red);
+  }
+
+  .flag-tag.gap {
+    background: rgba(249,115,22,0.12);
+    color: var(--orange);
+  }
+
+  /* Type radar bars */
+  .type-bars {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 14px;
+  }
+
+  .type-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .type-bar-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .type-bar-label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    width: 100px;
+    flex-shrink: 0;
+  }
+
+  .type-bar-track {
+    flex-grow: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .type-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+  }
+
+  .type-bar-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    width: 24px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .type-bar-row.highlighted .type-bar-label {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .type-bar-row.highlighted .type-bar-score {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .vote-hint {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .battle-card:hover .vote-hint { opacity: 1; }
+
+  /* VS divider */
+  .vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vs-text {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--text-dim);
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Skip */
+  .skip-row {
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 32px;
+  }
+
+  .skip-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: color 0.15s;
+  }
+
+  .skip-btn:hover { color: var(--text); }
+
+  /* ============ TYPE LEGEND ============ */
+  .type-legend {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding: 16px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .type-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+
+  .type-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ============ LEADERBOARD ============ */
+  .leaderboard-section { margin-top: 16px; }
+
+  .leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .leaderboard-header h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  .leaderboard-header span {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  .leaderboard {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .lb-row {
+    display: grid;
+    grid-template-columns: 40px 20px 1fr 80px 70px 70px 50px;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.2s;
+    gap: 8px;
+  }
+
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row:hover { background: rgba(255,255,255,0.02); }
+
+  .lb-row.header {
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    padding: 10px 20px;
+    background: rgba(167,139,250,0.05);
+  }
+
+  .lb-rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  .lb-rank.top-3 { color: var(--accent); }
+
+  .lb-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+  }
+
+  .lb-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .lb-elo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: right;
+  }
+
+  .lb-elo-change {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    text-align: right;
+  }
+
+  .lb-elo-change.positive { color: var(--green); }
+  .lb-elo-change.negative { color: var(--red); }
+  .lb-elo-change.neutral { color: var(--text-dim); }
+
+  .lb-record {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-align: right;
+  }
+
+  .lb-best-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* ============ HISTORY ============ */
+  .history-section { margin-top: 32px; }
+
+  .history-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-dim);
+  }
+
+  .history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 240px;
+    overflow-y: auto;
+  }
+
+  .history-item {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    background: var(--bg-card);
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .history-item .winner-name { color: var(--green); font-weight: 600; }
+  .history-item .loser-name { color: var(--red); font-weight: 600; }
+
+  .history-item .battle-type {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .history-item .elo-shift {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--green);
+  }
+
+  /* ============ EXPLANATION ============ */
+  .explanation {
+    margin-top: 32px;
+    background: linear-gradient(135deg, rgba(167,139,250,0.05), rgba(129,140,248,0.05));
+    border: 1px solid rgba(167,139,250,0.12);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .explanation h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .explanation p {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .arena .battle-card:first-child { animation: slideInLeft 0.35s ease; }
+  .arena .battle-card:last-child { animation: slideInRight 0.35s ease; }
+
+  @keyframes flashBanner {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .arena { grid-template-columns: 1fr; gap: 16px; }
+    .vs-divider { margin: -8px 0; }
+    .lb-row { grid-template-columns: 36px 16px 1fr 60px 50px; }
+    .lb-elo-change, .lb-best-type { display: none; }
+    .top-bar-stats { gap: 8px; }
+    .type-legend { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>TOS Battle Arena</h1>
+  <div class="top-bar-stats">
+    <span class="stat-chip">Matches: <strong id="matchCount">0</strong></span>
+    <span class="stat-chip">K-Factor: <strong>32</strong></span>
+    <button class="reset-btn" onclick="resetAll()">Reset Rankings</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- TYPE LEGEND -->
+  <div class="type-legend">
+    <div class="type-legend-item"><div class="type-legend-dot" style="background:var(--type-privacy);"></div> Privacy</div>
+    <div class="type-legend-item"><div class="type-legend-dot" style="background:var(--type-creator);"></div> Creator Rights</div>
+    <div class="type-legend-item"><div class="type-legend-dot" style="background:var(--type-transparency);"></div> Transparency</div>
+    <div class="type-legend-item"><div class="type-legend-dot" style="background:var(--type-safety);"></div> Safety</div>
+    <div class="type-legend-item"><div class="type-legend-dot" style="background:var(--type-accountability);"></div> Accountability</div>
+  </div>
+
+  <!-- QUESTION -->
+  <div class="question-header">
+    <div class="matchup-number" id="matchupNumber">MATCHUP #1</div>
+    <h2>Which company protects your rights better?</h2>
+    <p>The battlefield dimension is highlighted on each card. Type advantages matter.</p>
+  </div>
+
+  <!-- BATTLEFIELD -->
+  <div class="battlefield-banner" id="battlefieldBanner"></div>
+
+  <!-- ARENA -->
+  <div class="arena" id="arena"></div>
+
+  <!-- SKIP -->
+  <div class="skip-row">
+    <button class="skip-btn" onclick="nextMatchup()">Too close to call &mdash; skip &rarr;</button>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="leaderboard-section">
+    <div class="leaderboard-header">
+      <h3>ELO Leaderboard</h3>
+      <span>Type-weighted rankings &mdash; color = strongest dimension</span>
+    </div>
+    <div class="leaderboard" id="leaderboard"></div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="history-section">
+    <h3>Match History</h3>
+    <div class="history-list" id="historyList">
+      <div class="history-item" style="font-style:italic;">No matches yet. Cast your first vote above.</div>
+    </div>
+  </div>
+
+  <!-- EXPLANATION -->
+  <div class="explanation">
+    <h3>How Type Advantages Work</h3>
+    <p>Each company has strengths across 5 dimensions: <strong style="color:var(--type-privacy);">Privacy</strong> (data collection, retention, sharing), <strong style="color:var(--type-creator);">Creator Rights</strong> (content license, AI training, monetization), <strong style="color:var(--type-transparency);">Transparency</strong> (readability, honesty, terms changes), <strong style="color:var(--type-safety);">Safety</strong> (harassment protections, queer-friendliness, content moderation), and <strong style="color:var(--type-accountability);">Accountability</strong> (dispute resolution, termination fairness, liability).</p>
+    <p>Each matchup randomly selects a <strong>battlefield dimension</strong>. The company stronger in that dimension gets a type advantage &mdash; like Pokemon. X/Twitter (Privacy: 3) can beat Instagram (Privacy: 1) on a Privacy battlefield even though Instagram has a higher overall score. This means no company is universally best &mdash; it depends on what you're measuring.</p>
+    <p>Each company's <strong>color</strong> is an RGB blend of their type profile. Blue-ish = privacy-focused. Green-ish = creator-friendly. Purple = safety-strong. The color tells you at a glance what a company's TOS prioritizes.</p>
+  </div>
+
+</div>
+
+<script>
+// ========================================
+// TYPE DEFINITIONS
+// ========================================
+const TYPES = [
+  {
+    key: 'privacy',
+    name: 'Privacy',
+    color: [59, 130, 246],  // #3b82f6
+    desc: 'Data collection, retention, sharing, tracking',
+    cssVar: 'var(--type-privacy)'
+  },
+  {
+    key: 'creator',
+    name: 'Creator Rights',
+    color: [34, 197, 94],   // #22c55e
+    desc: 'Content license, AI training, monetization',
+    cssVar: 'var(--type-creator)'
+  },
+  {
+    key: 'transparency',
+    name: 'Transparency',
+    color: [245, 158, 11],  // #f59e0b
+    desc: 'Readability, honesty, terms change process',
+    cssVar: 'var(--type-transparency)'
+  },
+  {
+    key: 'safety',
+    name: 'Safety',
+    color: [168, 85, 247],  // #a855f7
+    desc: 'Harassment protections, queer-friendliness, moderation equity',
+    cssVar: 'var(--type-safety)'
+  },
+  {
+    key: 'accountability',
+    name: 'Accountability',
+    color: [239, 68, 68],   // #ef4444
+    desc: 'Dispute resolution, termination fairness, liability balance',
+    cssVar: 'var(--type-accountability)'
+  }
+];
+
+// ========================================
+// COMPANY DATA WITH TYPE SCORES (1-5)
+// ========================================
+// All data sourced from scores-all-platforms.json — actual audited TOS/privacy policies
+// Type scores are averages of real category scores (1-5) from the audit rubric:
+//   Privacy: data_collection, third_party_sharing, tracking, retention, encryption, cross_border
+//   Creator: content_license, ai_training, content_removal, post_deletion_survival
+//   Transparency: readability, terms_change_process, law_enforcement_transparency
+//   Safety: anti_harassment, content_moderation_equity, sensitive_data, real_name_requirements
+//   Accountability: dispute_resolution, account_termination, liability
+const companiesData = [
+  {
+    name: "Discord",
+    originalScore: 62,
+    summary: "Best-in-class overall. Strong privacy, transparent terms, solid creator protections. Gap flags on safety dimensions — sensitive data handling, harassment protections, and content moderation equity still have holes.",
+    flags: ["Broad content license", "Device fingerprinting"],
+    gapFlags: ["Sensitive data handling", "Content moderation equity"],
+    types: { privacy: 3, creator: 3, transparency: 4, safety: 3, accountability: 3 }
+  },
+  {
+    name: "LinkedIn",
+    originalScore: 57,
+    summary: "Strongest transparency score in the field. Microsoft backing adds real accountability. Privacy is middling — ad network and AI training on content pull it down.",
+    flags: ["AI training on content", "Third-party ad network"],
+    gapFlags: [],
+    types: { privacy: 3, creator: 3, transparency: 4, safety: 2, accountability: 3 }
+  },
+  {
+    name: "YouTube",
+    originalScore: 55,
+    summary: "Highest accountability and transparency scores. But 9 gap flags — the most of any platform. Cross-product Google data ecosystem undermines privacy. Creator monetization terms are restrictive.",
+    flags: ["Cross-product data linking", "Face recognition", "9 gap flags"],
+    gapFlags: ["AI training", "Data collection", "Creator monetization"],
+    types: { privacy: 2, creator: 3, transparency: 4, safety: 2, accountability: 4 }
+  },
+  {
+    name: "Patreon",
+    originalScore: 54,
+    summary: "Strong privacy for a creator platform. Decent safety. But content license, AI training, and post-deletion survival all have gap flags — creator-friendly branding meets standard-issue legal terms.",
+    flags: ["Content license gap flags", "AI training concerns"],
+    gapFlags: ["Content license scope", "Post-deletion survival"],
+    types: { privacy: 3, creator: 2, transparency: 3, safety: 3, accountability: 3 }
+  },
+  {
+    name: "Reddit",
+    originalScore: 53,
+    summary: "Best safety score in the field. Pseudonymous by design. Strong privacy. But creator rights are the worst among top platforms — the $60M Google AI deal means your posts train models without consent.",
+    flags: ["$60M Google AI deal", "Broad content license"],
+    gapFlags: ["Content license scope", "Readability"],
+    types: { privacy: 3, creator: 2, transparency: 3, safety: 3, accountability: 2 }
+  },
+  {
+    name: "Snapchat",
+    originalScore: 51,
+    summary: "Balanced across all dimensions. Ephemeral-by-design is contradicted by perpetual license for public content. Best data retention design, but gap flags on content license and sensitive data.",
+    flags: ["Perpetual license (public)", "AI training via My AI"],
+    gapFlags: ["Ephemeral branding vs. perpetual license"],
+    types: { privacy: 3, creator: 2, transparency: 3, safety: 3, accountability: 3 }
+  },
+  {
+    name: "Substack",
+    originalScore: 50,
+    summary: "Decent privacy and safety. But AI training terms are vague and content moderation equity is flagged. Newsletter model means less data collection than social platforms.",
+    flags: ["Vague AI training terms", "Content moderation gaps"],
+    gapFlags: ["AI training", "Content moderation equity"],
+    types: { privacy: 3, creator: 2, transparency: 3, safety: 3, accountability: 2 }
+  },
+  {
+    name: "Twitch",
+    originalScore: 44,
+    summary: "Amazon subsidiary with weak privacy and transparency. Strongest safety score among streaming platforms. Complex affiliate/partner agreements with 5 gap flags.",
+    flags: ["Amazon data ecosystem", "Commercial content use"],
+    gapFlags: ["Content license", "Third-party sharing", "Readability"],
+    types: { privacy: 2, creator: 2, transparency: 2, safety: 3, accountability: 2 }
+  },
+  {
+    name: "Instagram/Meta",
+    originalScore: 43,
+    summary: "Cross-Meta tracking across Facebook, WhatsApp. Mouse movements, camera roll data. The platform being argued about in court right now. Accountability is its relative strength.",
+    flags: ["Cross-platform tracking", "AI training (no opt-out)", "Mouse movements"],
+    gapFlags: ["'We don't sell data' vs. sharing"],
+    types: { privacy: 2, creator: 2, transparency: 3, safety: 2, accountability: 3 }
+  },
+  {
+    name: "X/Twitter",
+    originalScore: 43,
+    summary: "Entire TOS is ~30 lines. Strongest privacy and safety among bottom-tier platforms — but transparency is the worst in the entire field. $15K liquidated damages buried without context. 4 gap flags.",
+    flags: ["AI training (no opt-out)", "$15K liquidated damages", "30-line TOS"],
+    gapFlags: ["Brevity obscures scope", "Content moderation equity"],
+    types: { privacy: 3, creator: 2, transparency: 2, safety: 3, accountability: 2 }
+  },
+  {
+    name: "TikTok",
+    originalScore: 36,
+    summary: "Faceprints, voiceprints, keystroke patterns, clipboard content. Irrevocable AI/ML license. 1-year statute of limitations. Friendly parentheticals mask the most aggressive terms in the field.",
+    flags: ["Faceprints", "Voiceprints", "Keystroke patterns", "Irrevocable AI license"],
+    gapFlags: ["Friendly language masks scope"],
+    types: { privacy: 2, creator: 2, transparency: 2, safety: 2, accountability: 2 }
+  },
+  {
+    name: "Kick",
+    originalScore: 34,
+    summary: "Claims 'creator-friendly' while denying audit rights. Worst creator rights score in the field. Weak across every dimension. 4 gap flags on a platform with the shortest track record.",
+    flags: ["No audit rights", "Broad content license", "Vague data practices"],
+    gapFlags: ["'Creator-friendly' vs. terms", "Creator monetization"],
+    types: { privacy: 2, creator: 1, transparency: 2, safety: 2, accountability: 2 }
+  }
+];
+
+// ========================================
+// COLOR COMPUTATION
+// ========================================
+function computeColor(types) {
+  let r = 0, g = 0, b = 0, totalWeight = 0;
+  TYPES.forEach(t => {
+    const score = types[t.key];
+    const weight = score * score; // square to emphasize strengths
+    r += t.color[0] * weight;
+    g += t.color[1] * weight;
+    b += t.color[2] * weight;
+    totalWeight += weight;
+  });
+  return `rgb(${Math.round(r/totalWeight)}, ${Math.round(g/totalWeight)}, ${Math.round(b/totalWeight)})`;
+}
+
+function bestType(types) {
+  let best = null, bestScore = 0;
+  TYPES.forEach(t => {
+    if (types[t.key] > bestScore) { bestScore = types[t.key]; best = t; }
+  });
+  return best;
+}
+
+// ========================================
+// ELO STATE
+// ========================================
+const K = 32;
+
+// Pre-seeded from converged type-weighted simulation
+// 660,000 matchups (10K per pair, random battlefield dimension each time)
+// ELO derived from true win rates against the field
+const preseeded = {
+  "Discord": { elo: 1246, wins: 93, losses: 72 },
+  "LinkedIn": { elo: 1231, wins: 90, losses: 75 },
+  "YouTube": { elo: 1230, wins: 90, losses: 75 },
+  "Snapchat": { elo: 1221, wins: 87, losses: 78 },
+  "Patreon": { elo: 1220, wins: 87, losses: 78 },
+  "Reddit": { elo: 1206, wins: 84, losses: 81 },
+  "Substack": { elo: 1205, wins: 84, losses: 81 },
+  "Instagram/Meta": { elo: 1188, wins: 80, losses: 85 },
+  "X/Twitter": { elo: 1188, wins: 80, losses: 85 },
+  "Twitch": { elo: 1173, wins: 76, losses: 89 },
+  "TikTok": { elo: 1157, wins: 72, losses: 93 },
+  "Kick": { elo: 1136, wins: 67, losses: 98 },
+};
+
+let matchCount = 165;
+let history = [];
+let companies = companiesData.map(c => {
+  const seed = preseeded[c.name] || { elo: 1200, wins: 0, losses: 0 };
+  return {
+    ...c,
+    color: computeColor(c.types),
+    bestType: bestType(c.types),
+    elo: seed.elo,
+    wins: seed.wins,
+    losses: seed.losses,
+    lastChange: 0
+  };
+});
+
+let currentPair = [null, null];
+let currentBattlefield = null;
+let recentPairs = [];
+
+// ========================================
+// ELO MATH
+// ========================================
+function expected(rA, rB) {
+  return 1 / (1 + Math.pow(10, (rB - rA) / 400));
+}
+
+function updateElo(winner, loser) {
+  const eW = expected(winner.elo, loser.elo);
+  const eL = expected(loser.elo, winner.elo);
+  const winnerDelta = Math.round(K * (1 - eW));
+  const loserDelta = Math.round(K * (0 - eL));
+  winner.elo += winnerDelta;
+  winner.wins++;
+  winner.lastChange = winnerDelta;
+  loser.elo += loserDelta;
+  loser.losses++;
+  loser.lastChange = loserDelta;
+  return { winnerDelta, loserDelta };
+}
+
+// ========================================
+// MATCHUP SELECTION
+// ========================================
+function pickPair() {
+  const sorted = [...companies].sort((a, b) => a.elo - b.elo);
+  let bestPair = null, bestDiff = Infinity;
+
+  for (let attempt = 0; attempt < 30; attempt++) {
+    const i = Math.floor(Math.random() * sorted.length);
+    let j;
+    if (Math.random() < 0.7) {
+      const offset = (Math.random() < 0.5 ? 1 : -1) * (Math.floor(Math.random() * 3) + 1);
+      j = Math.min(sorted.length - 1, Math.max(0, i + offset));
+    } else {
+      j = Math.floor(Math.random() * sorted.length);
+    }
+    if (i === j) continue;
+    const a = sorted[i], b = sorted[j];
+    const pairKey = [a.name, b.name].sort().join('|');
+    if (recentPairs.includes(pairKey)) continue;
+    const diff = Math.abs(a.elo - b.elo);
+    if (diff < bestDiff || !bestPair) { bestDiff = diff; bestPair = [a, b]; }
+  }
+
+  if (!bestPair) {
+    const shuffled = [...companies].sort(() => Math.random() - 0.5);
+    bestPair = [shuffled[0], shuffled[1]];
+  }
+
+  const pairKey = [bestPair[0].name, bestPair[1].name].sort().join('|');
+  recentPairs.push(pairKey);
+  if (recentPairs.length > 6) recentPairs.shift();
+  if (Math.random() < 0.5) bestPair.reverse();
+
+  return bestPair;
+}
+
+function pickBattlefield() {
+  return TYPES[Math.floor(Math.random() * TYPES.length)];
+}
+
+// ========================================
+// RENDERING
+// ========================================
+function renderBattleCard(company, side) {
+  const flagsHtml = company.flags.map(f => `<span class="flag-tag">${f}</span>`).join('');
+  const gapHtml = company.gapFlags.map(f => `<span class="flag-tag gap">${f}</span>`).join('');
+
+  const barsHtml = TYPES.map(t => {
+    const score = company.types[t.key];
+    const pct = (score / 5) * 100;
+    const isHighlighted = currentBattlefield && t.key === currentBattlefield.key;
+    return `
+      <div class="type-bar-row ${isHighlighted ? 'highlighted' : ''}">
+        <div class="type-bar-icon" style="background:${t.cssVar};${isHighlighted ? 'box-shadow:0 0 6px ' + t.cssVar : ''}"></div>
+        <div class="type-bar-label">${t.name}</div>
+        <div class="type-bar-track">
+          <div class="type-bar-fill" style="width:${pct}%;background:${t.cssVar};${isHighlighted ? 'box-shadow:0 0 8px ' + t.cssVar : ''}"></div>
+        </div>
+        <div class="type-bar-score">${score}/5</div>
+      </div>
+    `;
+  }).join('');
+
+  const battlefieldScore = currentBattlefield ? company.types[currentBattlefield.key] : 0;
+  const hoverColor = currentBattlefield ? currentBattlefield.cssVar : 'var(--accent)';
+
+  return `
+    <div class="battle-card" onclick="vote('${company.name}', '${side}')" id="card-${side}"
+         style="--hover-color:${hoverColor};"
+         onmouseenter="this.style.borderColor='${company.color}'"
+         onmouseleave="this.style.borderColor='rgba(255,255,255,0.06)'">
+      <div class="card-color-bar" style="background:${company.color};"></div>
+      <div class="card-elo">ELO ${company.elo}</div>
+      <div class="card-name">${company.name}</div>
+      <div class="card-type-label" style="color:${company.bestType.cssVar};">Strongest: ${company.bestType.name}</div>
+      <div class="card-summary">${company.summary}</div>
+      <div class="card-flags">${flagsHtml}${gapHtml}</div>
+      <div class="type-bars">${barsHtml}</div>
+      <div class="vote-hint" style="color:${company.color};">Click to vote for this company</div>
+    </div>
+  `;
+}
+
+function renderBattlefield() {
+  const bf = currentBattlefield;
+  const banner = document.getElementById('battlefieldBanner');
+  banner.innerHTML = `
+    <div class="battlefield-label">Battlefield Dimension</div>
+    <div class="battlefield-name" style="color:${bf.cssVar};">${bf.name}</div>
+    <div class="battlefield-desc">${bf.desc}</div>
+  `;
+  banner.style.borderColor = bf.cssVar.replace('var(', '').replace(')', '');
+  // Set border color via the actual color
+  const colorMap = {
+    'var(--type-privacy)': 'rgba(59,130,246,0.3)',
+    'var(--type-creator)': 'rgba(34,197,94,0.3)',
+    'var(--type-transparency)': 'rgba(245,158,11,0.3)',
+    'var(--type-safety)': 'rgba(168,85,247,0.3)',
+    'var(--type-accountability)': 'rgba(239,68,68,0.3)'
+  };
+  banner.style.borderColor = colorMap[bf.cssVar] || 'rgba(255,255,255,0.08)';
+  banner.style.background = colorMap[bf.cssVar].replace('0.3', '0.05');
+}
+
+function renderArena() {
+  currentPair = pickPair();
+  currentBattlefield = pickBattlefield();
+  renderBattlefield();
+  const arena = document.getElementById('arena');
+  arena.innerHTML = `
+    ${renderBattleCard(currentPair[0], 'left')}
+    <div class="vs-divider"><div class="vs-text">VS</div></div>
+    ${renderBattleCard(currentPair[1], 'right')}
+  `;
+  document.getElementById('matchupNumber').textContent = `MATCHUP #${matchCount + 1}`;
+}
+
+function renderLeaderboard() {
+  const sorted = [...companies].sort((a, b) => b.elo - a.elo);
+
+  let html = `
+    <div class="lb-row header">
+      <div>#</div>
+      <div></div>
+      <div>Company</div>
+      <div style="text-align:right;">ELO</div>
+      <div style="text-align:right;">Last</div>
+      <div style="text-align:right;">W-L</div>
+      <div>Type</div>
+    </div>
+  `;
+
+  sorted.forEach((c, i) => {
+    const changeClass = c.lastChange > 0 ? 'positive' : c.lastChange < 0 ? 'negative' : 'neutral';
+    const changeText = c.lastChange > 0 ? `+${c.lastChange}` : c.lastChange < 0 ? `${c.lastChange}` : '\u2014';
+
+    html += `
+      <div class="lb-row">
+        <div class="lb-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</div>
+        <div><div class="lb-swatch" style="background:${c.color};"></div></div>
+        <div class="lb-name">${c.name}</div>
+        <div class="lb-elo">${c.elo}</div>
+        <div class="lb-elo-change ${changeClass}">${changeText}</div>
+        <div class="lb-record">${c.wins}-${c.losses}</div>
+        <div><span class="lb-best-type" style="background:${c.bestType.cssVar.replace(')', ',0.15)').replace('var(', 'rgba(').replace('--type-privacy', '59,130,246').replace('--type-creator', '34,197,94').replace('--type-transparency', '245,158,11').replace('--type-safety', '168,85,247').replace('--type-accountability', '239,68,68')};color:${c.bestType.cssVar};">${c.bestType.name.split(' ')[0]}</span></div>
+      </div>
+    `;
+  });
+
+  document.getElementById('leaderboard').innerHTML = html;
+}
+
+function renderHistory() {
+  const list = document.getElementById('historyList');
+  if (history.length === 0) {
+    list.innerHTML = '<div class="history-item" style="font-style:italic;">No matches yet. Cast your first vote above.</div>';
+    return;
+  }
+
+  list.innerHTML = history.slice().reverse().slice(0, 30).map(h => {
+    const typeColor = h.battlefield.cssVar;
+    const bgColor = typeColor.replace(')', ',0.12)').replace('var(', 'rgba(').replace('--type-privacy', '59,130,246').replace('--type-creator', '34,197,94').replace('--type-transparency', '245,158,11').replace('--type-safety', '168,85,247').replace('--type-accountability', '239,68,68');
+    return `
+      <div class="history-item">
+        <span><span class="winner-name">${h.winner}</span> beat <span class="loser-name">${h.loser}</span></span>
+        <span class="battle-type" style="background:${bgColor};color:${typeColor};">${h.battlefield.name}</span>
+        <span class="elo-shift">+${h.winnerDelta}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+// ========================================
+// VOTE
+// ========================================
+function vote(winnerName, side) {
+  const winner = currentPair.find(c => c.name === winnerName);
+  const loser = currentPair.find(c => c.name !== winnerName);
+
+  const winCard = document.getElementById(`card-${side}`);
+  const loseCard = document.getElementById(`card-${side === 'left' ? 'right' : 'left'}`);
+  winCard.classList.add('winner-flash');
+  loseCard.classList.add('loser-flash');
+
+  const { winnerDelta, loserDelta } = updateElo(winner, loser);
+  matchCount++;
+
+  history.push({
+    winner: winner.name,
+    loser: loser.name,
+    battlefield: currentBattlefield,
+    winnerDelta,
+    loserDelta
+  });
+
+  document.getElementById('matchCount').textContent = matchCount;
+
+  setTimeout(() => {
+    renderArena();
+    renderLeaderboard();
+    renderHistory();
+  }, 600);
+}
+
+function nextMatchup() { renderArena(); }
+
+function resetAll() {
+  if (!confirm('Reset all rankings to 1200?')) return;
+  companies.forEach(c => {
+    c.elo = 1200; c.wins = 0; c.losses = 0; c.lastChange = 0;
+  });
+  matchCount = 0;
+  history = [];
+  recentPairs = [];
+  document.getElementById('matchCount').textContent = 0;
+  renderArena();
+  renderLeaderboard();
+  renderHistory();
+}
+
+// ========================================
+// INIT
+// ========================================
+renderArena();
+renderLeaderboard();
+renderHistory();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+[
+  {
+    "platform": "YouTube",
+    "scores": {
+      "content_license_scope": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "YouTube says 'You retain ownership rights in your Content' but the license granted is worldwide, non-exclusive, royalty-free, sublicensable, AND transferable -- including to 'successors and Affiliates' (Alphabet Inc.). The transferable clause and derivative works rights go beyond what's needed to display content.",
+        "evidence": "\"you grant to YouTube a worldwide, non-exclusive, royalty-free, sublicensable and transferable license to use that Content (including to reproduce, distribute, prepare derivative works, display and perform it) in connection with the Service and YouTube's (and its successors' and Affiliates') business, including for the purpose of promoting and redistributing part or all of the Service.\""
+      },
+      "ai_ml_training": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "YouTube ToS does not mention AI/ML training, but the license is broad enough to permit it. Google Privacy Policy states they use 'publicly available information to help train Google's AI models' but does not clearly address user-uploaded content for training, and no opt-out is offered for content used in AI.",
+        "evidence": "Google Privacy Policy: 'we use publicly available information to help train Google's AI models and build products and features like Google Translate, Gemini Apps, and Cloud AI capabilities.' ToS license covers 'prepare derivative works' which could include AI training. No AI-specific opt-out."
+      },
+      "content_removal_power": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "YouTube can remove content if '(1) is in breach of this Agreement or (2) may cause harm to YouTube, our users, or third parties.' They 'will notify you with the reason for our action' with exceptions for legal, investigation, or security reasons. Appeal process exists through Help Center. Strike system provides structure."
+      },
+      "post_deletion_survival": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"The licenses granted by you continue for a commercially reasonable period of time after you remove or delete your Content from the Service. You understand and agree, however, that YouTube may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted.\" License does not explicitly terminate -- it continues for 'commercially reasonable period.'"
+      },
+      "account_termination": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "YouTube can suspend or terminate for: '(a) you materially or repeatedly breach this Agreement; (b) we are required to do so to comply with a legal requirement or a court order; or (c) we reasonably believe that there has been conduct that creates (or could create) liability or harm.' Notice is provided with exceptions. Appeal form is available."
+      },
+      "dispute_resolution": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "No forced arbitration. Court access preserved. 'will be litigated exclusively in the federal or state courts of Santa Clara County, California.' Includes 1-year shortened statute of limitations: 'ANY CAUSE OF ACTION...MUST COMMENCE WITHIN ONE (1) YEAR.' No class action waiver."
+      },
+      "terms_change_process": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"If we materially change this Agreement, we'll provide you with reasonable advance notice and the opportunity to review the changes.\" Exceptions for new product launches and urgent situations. Remedy is limited to removing content and leaving. Google Takeout export available."
+      },
+      "liability_indemnification": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Broad indemnification covering 'your use of and access to the Service...your violation of any term...any claim that your Content caused damage.' Includes attorney's fees. Liability cap is 'the greater of: (A) the amount of revenue that YouTube has paid to you...in the 12 months before...and (B) USD $500.' The $500 floor is low but better than $100."
+      },
+      "data_collection_breadth": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Google's friendly framing ('We want you to understand') masks one of the most extensive data collection regimes. Collection includes biometrics ('fingerprints'), voice/audio, precise GPS, health data, call logs, Chrome browsing history, and cross-platform activity across all Alphabet services.",
+        "evidence": "Collects: 'Biometric information if you choose to provide it, such as fingerprints'; 'Audio, electronic, visual, and similar information, such as voice and audio information'; 'Health information...such as your medical history, vital signs and health metrics'; 'Geolocation data...precise location data'; 'Chrome browsing history you've synced'; call/message log information."
+      },
+      "third_party_sharing": {
+        "score": 3,
+        "gap_flag": true,
+        "gap_note": "Google says 'We do not share your personal information' as defined by CCPA, but extensively shares data across the entire Alphabet corporate family and with advertising/analytics partners. 'Non-personally identifiable information' is shared publicly and with partners.",
+        "evidence": "\"Google does not sell your personal information. Google also does not 'share' your personal information as that term is defined in the California Consumer Privacy Act (CCPA).\" But: 'We may share non-personally identifiable information publicly and with our partners -- like publishers, advertisers, developers.' Provides info to 'affiliates and other trusted businesses or persons.'"
+      },
+      "tracking_advertising": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Google provides ad controls (My Ad Center) while simultaneously running the world's largest ad network across all properties. Cross-platform tracking spans Search, YouTube, Chrome, Android, Maps, Gmail, and third-party sites. The opt-out exists but the default is aggressive tracking.",
+        "evidence": "\"if you watch videos of guitar players on YouTube, you might see an ad for guitar lessons on a site that uses our ad products.\" Tracks 'Activity on third-party sites and apps that use our services.' Uses 'cookies, pixel tags, local storage...databases, and server logs.' 'We may use the information we collect across our services and across your devices.'"
+      },
+      "data_retention_deletion": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Some data types have specific retention ('advertising data in server logs' auto-deleted). Users can delete data through My Activity. But: 'some data we retain for longer periods of time when necessary for legitimate business or legal purposes.' Also: 'there may be delays between when you delete something and when copies are deleted.' Google Takeout provides export."
+      },
+      "readability_honesty": {
+        "score": 3,
+        "gap_flag": true,
+        "gap_note": "The ToS has helpful plain-language summaries, but the Privacy Policy's friendly framing ('We understand this is a big responsibility') somewhat masks the sheer scope of data collection. The ownership reassurance ('You retain ownership rights') coexists with a very broad license grant.",
+        "evidence": "ToS opens with helpful summaries but contains standard aggressive legal terms. Privacy Policy states 'trusting us with your information' while collecting biometrics, health data, call logs, and cross-platform browsing history."
+      },
+      "encryption_security": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"We use encryption to keep your data private while in transit.\" Offers 2-Step Verification, Safe Browsing, Security Checkup. Reviews 'information collection, storage, and processing practices, including physical security measures.' Restricts access to authorized personnel. No mention of encryption at rest or E2E encryption."
+      },
+      "creator_monetization": {
+        "score": 3,
+        "gap_flag": true,
+        "gap_note": "YouTube grants itself the right to monetize your content and explicitly states 'This Agreement does not entitle you to any payments.' Revenue share terms are in the separate YouTube Partner Program agreement, not the ToS. All payments unilaterally characterized as 'royalties' for tax purposes since Nov 2020.",
+        "evidence": "\"You grant to YouTube the right to monetize your Content on the Service... This Agreement does not entitle you to any payments.\" Payments treated as 'royalties' since Nov 2020. 'If required by law, Google will withhold taxes from such payments.' Revenue share terms in separate YPP agreement."
+      }
+    }
+  },
+  {
+    "platform": "Twitch",
+    "scores": {
+      "content_license_scope": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Twitch's purple-text summaries frame it as 'make your User Content available to the world' while the legal text grants an irrevocable, perpetual license including use of 'name, identity, likeness, and voice' in 'any form, format, media, or media channels now known or later developed.'",
+        "evidence": "\"you grant Twitch and its sub-licensees, to the furthest extent and for the maximum duration permitted by applicable law (including in perpetuity if permitted under applicable law), an unrestricted, worldwide, irrevocable, fully sub-licenseable, nonexclusive, and royalty-free right to: (a) use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, perform, and display your User Content...in any form, format, media, or media channels now known or later developed or discovered; and (b) use the name, identity, likeness, and voice.\""
+      },
+      "ai_ml_training": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "No explicit mention of AI/ML training in ToS or Privacy Notice. However, the license language is maximally broad: 'unrestricted, worldwide, irrevocable...in any form, format, media, or media channels now known or later developed or discovered.' This encompasses AI/ML training. No opt-out exists."
+      },
+      "content_removal_power": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "The purple summary says 'We have the right to remove, hide, or moderate any User Content' but the legal text allows removal 'at any time and without notice.'",
+        "evidence": "\"Twitch reserves the right to remove, screen, or otherwise moderate any User Content posted or stored on the Twitch Services at any time and without notice, including where such User Content violates these Terms of Service or applicable law.\" EU/EEA consumers get slightly better protections with notice requirements."
+      },
+      "post_deletion_survival": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "For streaming content, rights terminate on deletion 'except: (a) to the extent you shared it with others...and others copied or stored portions (e.g., made a Clip); (b)...others accessed, used, and/or shared your User Content outside the Twitch Services; (c)...Twitch used it for promotional purposes; (d) for the reasonable time it takes to remove from backup.' Multiple exceptions erode the termination."
+      },
+      "account_termination": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Purple summary says 'You and Twitch can each end this contract' but the legal text grants Twitch near-absolute power including termination 'for any reason' and 'without notice.'",
+        "evidence": "\"Twitch reserves the right, without notice and in our sole discretion, to stop providing the Services (or any features) to you or to users generally, to terminate this Terms of Service agreement with you...and to block or prevent your future access to and use of the Twitch Services for any reason.\" 'your only remedy...is to terminate your account and to discontinue use.'"
+      },
+      "dispute_resolution": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "No forced arbitration. Court access preserved: 'resolved exclusively by the United States District Court for the Northern District of California or a California state court located in San Francisco County.' Requires 60-day informal resolution period first. Includes 1-year statute of limitations. EU consumers retain local court rights."
+      },
+      "terms_change_process": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Twitch may amend any of the terms of these Terms of Service by posting the amended terms and updating the 'Last modified' date above. Your continued use of the Twitch Services after the effective date of the revised Terms of Service constitutes your acceptance of the terms.\" No requirement to notify of material changes (except for EU consumers)."
+      },
+      "liability_indemnification": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Sweeping indemnification: 'you agree to indemnify, defend, and hold harmless...from any claims, losses, damages, demands, expenses, costs, and liabilities, including legal fees.' Twitch can assume defense 'at your expense.' Liability cap: 'the amount paid by you...or one hundred dollars, whichever is greater.' $100 floor."
+      },
+      "data_collection_breadth": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Collects: name, voice, image, content, chats, email, address, phone, DOB, credit card, billing info. Automatically collects IP, device/browser types, referring pages, software/system type, interaction data. Also from 'other sources' including advertisers, games, social media networks. Combines info from third-party services like Riot and Steam."
+      },
+      "third_party_sharing": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Twitch says 'Twitch is not in the business of selling our users' personal information' but then explicitly shares and combines data across the Amazon corporate family.",
+        "evidence": "\"Twitch may share personal information with, and receive personal information from, our affiliates...including Amazon.com, Inc. and its subsidiaries.\" \"Personal information collected by Twitch may be combined with personal information about Amazon customers, and that combined information may be used by both Twitch and Amazon.\" Also shares email/device IDs with ad partners for matching."
+      },
+      "tracking_advertising": {
+        "score": 1,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Twitch may also work with third-party ad networks, advertisers, and advertising analytics providers to target (and measure the performance of) ads to you both on and off the Twitch Services.\" Shares 'cookie and mobile ad identifiers.' Explicitly: 'Twitch does not recognize or respond to browser-initiated DNT signals.' Cross-Amazon data combination enables cross-platform targeting."
+      },
+      "data_retention_deletion": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Twitch maintains data related to your usage of Twitch for as long as it is required to fulfill the relevant purposes described in this Privacy Notice, as may be required (or permitted) by law.\" Vague 'as long as required.' 'If you close your account, Twitch may retain certain information.' No specific timelines."
+      },
+      "readability_honesty": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "Twitch uses friendly purple-highlighted summaries that significantly downplay the aggressive legal text. The summary for termination says 'You and Twitch can each end this contract' while the legal text says 'without notice and in our sole discretion...for any reason.'",
+        "evidence": "Section 18 summary: 'Twitch has the right to end or suspend your ability to use the Services.' Legal text: 'without notice and in our sole discretion...for any reason.' Section 8 summary: 'make your User Content available to the world.' Legal text: 'irrevocable, fully sub-licenseable...in perpetuity if permitted under applicable law.'"
+      },
+      "encryption_security": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Twitch uses a variety of managerial, technical, and physical measures to protect the integrity and security of your information.\" But: 'no security precautions or systems can be completely secure. We cannot ensure the security of any information you transmit to Twitch, and you do so at your own risk.' No specific measures described."
+      },
+      "creator_monetization": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Monetization handled through separate 'Monetized Streamer Agreement' (referenced but not in main ToS). ToS grants Twitch 'the exclusive right to monetize the Twitch Services, including without limitation, the exclusive right to sell, serve, and display advertisements.' Main ToS does not detail revenue share, payout terms, or audit rights."
+      }
+    }
+  },
+  {
+    "platform": "Kick",
+    "scores": {
+      "content_license_scope": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Kick claims 'We claim no ownership rights over User Content created by you' but the license is perpetual, irrevocable, sublicensable, transferable, and includes 'any form, media or technology, whether now known or hereafter developed.' Combined with Section 3 allowing all data to be 'DELETED, ALTERED, MOVED OR TRANSFERRED AT ANY TIME...WITH OR WITHOUT NOTICE.'",
+        "evidence": "\"you expressly grant...a royalty-free, sublicensable, transferable, perpetual, irrevocable, non-exclusive, worldwide license to use, reproduce, modify, publish, list information regarding, edit, translate, distribute, syndicate, publicly perform, publicly display, and make derivative works of all such User Content and your name, voice, and/or likeness as contained in your User Content, in whole or in part, and in any form, media or technology, whether now known or hereafter developed.\""
+      },
+      "ai_ml_training": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "No mention of AI/ML training anywhere in ToS or Privacy Policy. However, the license is perpetual, irrevocable, and covers 'any form, media or technology, whether now known or hereafter developed' -- classic language encompassing AI training. No opt-out exists."
+      },
+      "content_removal_power": {
+        "score": 1,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Company has the right (but not the obligation) in its sole discretion to remove any User Content.\" Section 3: 'ANY DATA, USER ACCOUNT HISTORY AND USER ACCOUNT CONTENT RESIDING ON COMPANY'S SERVERS, MAY BE DELETED, ALTERED, MOVED OR TRANSFERRED AT ANY TIME FOR ANY REASON IN COMPANY'S SOLE DISCRETION, WITH OR WITHOUT NOTICE AND WITH NO LIABILITY OF ANY KIND.' No appeal process."
+      },
+      "post_deletion_survival": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Kick's 'creator-friendly' positioning contradicts the legal reality. The license is explicitly 'perpetual, irrevocable' with no termination mechanism upon deletion -- unlike even Twitch which provides for license termination on content deletion for streaming content.",
+        "evidence": "License is 'perpetual, irrevocable' with no survival clause or termination-upon-deletion provision. Section 3: 'COMPANY DOES NOT PROVIDE OR GUARANTEE, AND EXPRESSLY DISCLAIMS, ANY VALUE, CASH OR OTHERWISE, ATTRIBUTED TO ANY DATA RESIDING ON COMPANY'S SERVERS.'"
+      },
+      "account_termination": {
+        "score": 1,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"We may permanently or temporarily terminate or suspend your access to the Service without notice and liability for any reason, including if in our sole determination you violate any provision of these Terms, or for no reason.\" No refunds upon termination. 'Upon termination for any reason or no reason, you continue to be bound by these Terms.' No appeal process."
+      },
+      "dispute_resolution": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Mandatory ICC arbitration in London, England. 30-day opt-out window. Class action waiver (Section 11.7). 'The arbitration panel may only award damages as provided for under the terms of these Terms and in no event may punitive, consequential and special damages be awarded.' Governed by English law. ICC arbitration can be prohibitively expensive."
+      },
+      "terms_change_process": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"When we change these Terms in a material manner, we will update the 'last modified' date at the top of this page and notify you that material changes have been made.\" Continued use = acceptance. No advance notice period specified. Company may change terms 'in its sole discretion.'"
+      },
+      "liability_indemnification": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Broad indemnification covering seven categories including 'your use of and access to the Service' and 'any other party's access and use of the Service with your unique username, password.' Liability cap: amount paid in 12 months or $100, whichever is greater."
+      },
+      "data_collection_breadth": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Collects: contact info, account info, payment info, government-issued IDs and tax IDs, inquiry/communications info, all User Content including stream metadata. Automatically collects: IP, OS, device type, browser, analytics data, geolocation from IP, cookies. From third parties: Kick entities, social media, service providers, business partners, 'other sources' including 'publicly available sources, third-party data providers.' Requires ID verification."
+      },
+      "third_party_sharing": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Shares with: Kick entities, service providers, other users/public, advertising networks and partners, business transactions, legal obligations. 'We permit third-party online advertising networks, social media companies and other third-party services to collect information about your use of our Services over time.' Shares 'hashed email address or user ID' and 'AdID, precise geolocation.'"
+      },
+      "tracking_advertising": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"We may participate in interest-based advertising and use third-party advertising companies to serve you targeted advertisements based on your browsing history.\" Shares 'AdID, precise geolocation.' Uses Google Analytics, Facebook pixels. Social media platforms receive data for targeted advertising. Opt-out via DAA/NAI but 'We are not responsible for the effectiveness of' third-party opt-outs."
+      },
+      "data_retention_deletion": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "No specific retention timelines except EEA section with general categories. 'User Content licenses may prevent full deletion of certain public information.' No specific timelines in main policy. Deletion mechanism exists via privacy@kick.com contact but ToS perpetual license undermines it."
+      },
+      "readability_honesty": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "Kick's Privacy Policy opens with 'Our goal is to create a creator-friendly streaming service' but the ToS contains some of the most hostile terms: perpetual irrevocable license, termination for 'no reason,' all data deletable 'WITH OR WITHOUT NOTICE,' no refunds, no audit rights, 30-day payment dispute window.",
+        "evidence": "Privacy Policy: 'Our goal is to create a creator-friendly streaming service.' ToS Section 3: 'ANY DATA...MAY BE DELETED, ALTERED, MOVED OR TRANSFERRED AT ANY TIME FOR ANY REASON...WITH OR WITHOUT NOTICE AND WITH NO LIABILITY OF ANY KIND.' Section 4.6: 'you shall have no audit rights hereunder.'"
+      },
+      "encryption_security": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"We have implemented reasonable precautions to protect the information we collect.\" No specifics on encryption, TLS, 2FA, or particular security measures. ToS Section 5 further disclaims: security measures 'PROVIDED \"AS-IS\" AND WITH NO WARRANTIES, GUARANTEES.'"
+      },
+      "creator_monetization": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Despite marketing as 'creator-friendly,' Kick's monetization terms are the most one-sided analyzed. No audit rights, only Kick's records count, 30-day dispute window or claims waived forever, payment withheld at sole discretion, affiliate/partner status discontinued at will.",
+        "evidence": "Section 4.6: 'Payment shall be calculated solely based on records maintained by Company. No other measurements or statistics of any kind shall be accepted by Company or have any effect under these Terms and you shall have no audit rights hereunder.' 'If you dispute any payment...you must notify Company in writing within thirty (30) days...Failure to so notify Company shall result in the waiver by you of any claim.'"
+      }
+    }
+  },
+  {
+    "platform": "Patreon",
+    "scores": {
+      "content_license_scope": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "Patreon says 'Creators keep full ownership of their creations' and 'We will never try to steal your creations' but requires a 'royalty-free, perpetual, irrevocable, non-exclusive, sublicensable, worldwide license' covering 'all formats and channels now known or later developed.' The friendly reassurance contradicts the legal grant.",
+        "evidence": "\"you grant us a royalty-free, perpetual, irrevocable, non-exclusive, sublicensable, worldwide license covering your creation or what you post in all formats and channels now known or later developed anywhere in the world to use, copy, reproduce, store, translate, transmit, distribute, perform, prepare derivative works, publicly display, and display in connection with any name, username, voice, or likeness.\" Then: 'We will never try to steal your creations.'"
+      },
+      "ai_ml_training": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "No mention of AI/ML training, but the perpetual irrevocable license covering 'all formats and channels now known or later developed' is broad enough. The reassurance that Patreon won't use content 'in an exploitative way' is legally non-binding compared to the actual license grant.",
+        "evidence": "License covers 'all formats and channels now known or later developed anywhere in the world.' No specific AI/ML policy exists. Privacy Policy mentions using data for 'research and development' and 'conduct research and analytics on our customer and user base.'"
+      },
+      "content_removal_power": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"We can also cancel any membership subscriptions and remove any descriptions, posts, offerings, or benefits at our sole discretion.\" Also: 'Patreon reserves the right to remove creations and other material that violate Patreon's terms and policies.' No explicit notice requirement. No formal appeal process in ToS."
+      },
+      "post_deletion_survival": {
+        "score": 1,
+        "gap_flag": true,
+        "gap_note": "Despite 'Creators keep full ownership,' the license is explicitly 'perpetual, irrevocable' with no termination-upon-deletion clause. 'These terms remain in effect even if you no longer have an account.'",
+        "evidence": "License is 'royalty-free, perpetual, irrevocable, non-exclusive, sublicensable, worldwide.' No clause states the license terminates upon deletion. 'These terms remain in effect even if you no longer have an account.' Patreon's non-binding promise not to exploit content does not override the binding perpetual license."
+      },
+      "account_termination": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "Patreon adds a punitive clause: 'If you try to bring such a claim [against termination of another person], you are responsible for the damages caused, including attorneys' fees and costs.'",
+        "evidence": "\"We can terminate or suspend your account at any time at our sole discretion. We can also cancel any membership subscriptions and remove any descriptions, posts, offerings, or benefits at our sole discretion. You may not bring a claim against us for suspending or terminating another person's account...If you try to bring such a claim, you are responsible for the damages caused, including attorneys' fees and costs.\""
+      },
+      "dispute_resolution": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "No forced arbitration. Court access preserved in San Francisco federal/state courts. California law governs. No class action waiver. No shortened statute of limitations. Relatively straightforward compared to other platforms."
+      },
+      "terms_change_process": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"If we make a change to these terms that, in our sole discretion, is material, then we will let you know before the changes come into effect. Continuing to use Patreon after a change means you accept the new terms or policies.\" Patreon determines materiality at its sole discretion."
+      },
+      "liability_indemnification": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"You will indemnify us from all losses and liabilities, including legal fees, that arise from these terms or relate to your use of Patreon.\" Liability limited to 'the amount of money we have earned through your use of Patreon' -- better than a flat $100 cap as it scales with earnings. 'specifically not liable for loss associated with unfulfilled offerings and benefits.'"
+      },
+      "data_collection_breadth": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Collects: name, email, phone, username, password, location, IP, browser/device type, OS, language, referring pages, mobile carrier, device IDs, search terms, clicks, pages visited, session length, cookie info. Third-party account data (social media profiles, follower counts, relationship graphs). User research with video/audio recording. No biometrics or GPS-level location."
+      },
+      "third_party_sharing": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"We never sell your information to third parties.\" Sharing limited to: service providers (under contractual obligations), creators (necessary for membership), government/law enforcement, tax reporting, payment partners, sale/merger, connected third-party services. Has 'Creator Privacy Promise' (DPA). Interest-based advertising with opt-out options."
+      },
+      "tracking_advertising": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Interest-based advertising exists with opt-out options (DAA, iOS, Android controls). Uses cookies for analytics. 'Patreon does not monitor or otherwise respond to these \"Do Not Track\" signals.' Marketing opt-out available but advertising tracking is default-on."
+      },
+      "data_retention_deletion": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Patreon stores your personal data until it is no longer necessary to provide our services, or until you ask us to delete it.\" May retain after deletion for legal compliance. Users can access, port, and delete data through Privacy Center. No specific timelines but clear deletion mechanism."
+      },
+      "readability_honesty": {
+        "score": 3,
+        "gap_flag": true,
+        "gap_note": "Patreon's 'To summarize' sections are mostly accurate but the reassurance around content licensing ('We will never try to steal your creations') directly contradicts the perpetual irrevocable license. This is the clearest gap between friendly language and legal reality.",
+        "evidence": "'Creators keep full ownership of their creations' followed by perpetual irrevocable license grant. 'We will never try to steal your creations' is legally non-binding within a binding license that allows exactly that. 'We have done everything we can to make this easy to get through.'"
+      },
+      "encryption_security": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"The security of your personal data is important to us and we follow industry standards to protect it. You can learn more on our Security Policy page.\" No specific commitments in Privacy Policy -- defers to separate Security Policy. No mention of encryption, TLS, 2FA in reviewed documents."
+      },
+      "creator_monetization": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Fee structure described (platform fee, processing fee, payout fee, currency conversion fee) with details in Help Center. Can 'block or withhold access to these funds for violations.' Can recover negative balances from future payments. No audit rights mentioned. Fee transparency is reasonable. Legacy 'founding creator' rates exist."
+      }
+    }
+  },
+  {
+    "platform": "Substack",
+    "scores": {
+      "content_license_scope": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Users grant Substack a 'royalty-free, perpetual, irrevocable, and worldwide' license to display and modify content for technical adaptation. While framed as for 'technical adaptation across devices,' the perpetual and irrevocable nature makes this a broad grant. Creators retain ownership of original posts."
+      },
+      "ai_ml_training": {
+        "score": 2,
+        "gap_flag": true,
+        "gap_note": "No explicit mention of AI/ML training in ToS, but the Privacy Policy reveals Substack shares data with 'generative AI services' as a service provider category, while the content license is 'perpetual, irrevocable, and worldwide.' No opt-out mentioned.",
+        "evidence": "Privacy Policy Service Providers include 'generative AI services.' ToS license is 'royalty-free, perpetual, irrevocable, and worldwide.' No AI/ML training opt-out. The combination of a perpetual license and acknowledged use of generative AI services raises concerns."
+      },
+      "content_removal_power": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Substack may terminate accounts at discretion. Users may self-delete, though public posts may remain accessible elsewhere.\" Substack can remove content at its discretion. No detailed appeal process is described in the available ToS."
+      },
+      "post_deletion_survival": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "License is 'perpetual, irrevocable.' 'Account deletion removes associated Posts, though public Posts may remain available.' The perpetual license survives conceptually though practical content removal appears possible for non-public content."
+      },
+      "account_termination": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Substack may terminate accounts at discretion.\" Minimal detail on grounds, notice, or appeal process. Users can self-delete accounts."
+      },
+      "dispute_resolution": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Disputes proceed through arbitration in San Francisco County under JAMS rules. Class action participation is waived. California law governs.\" Mandatory arbitration with class action waiver. No mention of an opt-out window for arbitration."
+      },
+      "terms_change_process": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Privacy Policy: 'Changes are communicated through site notices, emails, or other means.' Continued use = acceptance. 'Legal notice emails remain binding even if you've opted out of receiving them.' Notification provided but no advance review period specified."
+      },
+      "liability_indemnification": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"The platform disclaims liability for indirect damages and caps monetary responsibility at the greater of $100 or amounts paid within twelve months preceding claims.\" $100 floor is very low."
+      },
+      "data_collection_breadth": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Collects: name, email, phone, DOB, payment details, location/mailing address, photographs, browser/device info, IP address, username/password, subscription status, social media account info, DM contents/metadata, YouTube account identifiers. Hashed email/phone via address book syncing. Standard breadth for a publishing platform."
+      },
+      "third_party_sharing": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Shares with: affiliates, Creators (name/email), service providers (including 'generative AI services'), third-party data controllers, other users, prospective buyers/sellers, government authorities. Anonymized data shared with 'trusted partners.' No explicit 'we do not sell' in the main privacy policy."
+      },
+      "tracking_advertising": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Uses Google Analytics, Facebook pixels, FullStory, Datadog. Creator Cookies allowed. 'Substack services do not support Do Not Track requests currently.' Performance cookies collect usage info. No aggressive cross-platform ad targeting described but analytics are extensive."
+      },
+      "data_retention_deletion": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Substack retains information only as long as reasonably necessary for fulfillment purposes. Personal information may be retained longer during complaints or when litigation prospects exist.\" Account deletion available but 'public Posts may remain available.' Users can access, edit, delete personal info through settings."
+      },
+      "readability_honesty": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "The ToS is presented in structured summary format. Privacy Policy is organized with descriptive headers. Substack honestly acknowledges 'Direct messages are not end-to-end encrypted.' Standard legal complexity. However, the 'generative AI services' disclosure in the service provider list is easy to miss."
+      },
+      "encryption_security": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Account protection depends on password strength and preventing unauthorized access. Substack endeavors to protect account privacy and personal information but cannot guarantee complete security.\" Explicitly: 'Direct messages are not end-to-end encrypted and are not substitutes for secure messaging services.' No specific security measures described."
+      },
+      "creator_monetization": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Substack's model is relatively transparent -- creators set prices and keep the majority of subscription revenue minus Substack's cut. Full terms are in separate Publisher Agreement not included in the reviewed ToS document. The well-known 10% revenue share is industry-leading in transparency, though detailed monetization terms are external to the main ToS."
+      }
+    }
+  },
+  {
+    "platform": "Discord",
+    "scores": {
+      "content_license_scope": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Users retain ownership of their content but grant Discord 'a license to use, reproduce, distribute, create derivative works' and display shared materials.\" Standard broad license. Privacy Policy adds that content from 'larger spaces' is used to 'develop and improve services, including safety features,' with user controls available. No perpetual/irrevocable language in available ToS."
+      },
+      "ai_ml_training": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Privacy Policy: 'Discord uses content from larger spaces to develop and improve services, including safety features. Users can control how their content is used through privacy settings.' Transparent about use. Users have settings to control this. Content from 'larger spaces' specifically (not DMs). Safety-focused framing."
+      },
+      "content_removal_power": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Discord may remove content violating policies or applicable law.\" Standard policy-based removal. Users can edit/delete their own messages and content. Reports system for violations. Automated systems for prohibited content detection."
+      },
+      "post_deletion_survival": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Delete: Permanently removes identifying information and anonymizes other data per retention policy.\" 'Content may be retained per policy and retention guidelines; legal obligations may require retention despite deletion.' Deletion available with clear options (disable vs. full delete)."
+      },
+      "account_termination": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "ToS summary indicates termination for prohibited conduct violations. Users can disable (reactivate later) or permanently delete accounts. Trust and Safety team handles enforcement. Specific termination grounds and appeal process not fully detailed in available summary documents."
+      },
+      "dispute_resolution": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Mandatory arbitration for U.S. and Canadian residents, with a class-action waiver. Users may opt out within 30 days of account creation by emailing arbitration-opt-out@discord.com.\" Forced arbitration with class action waiver, but meaningful 30-day opt-out window provided with clear email address."
+      },
+      "terms_change_process": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Significant changes receive prominent notice (email or in-service highlighting) as required.\" Discord updates policy periodically, always indicates publication dates. Advance notice for significant changes via email or in-service. Above average."
+      },
+      "liability_indemnification": {
+        "score": 2,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Discord disclaims warranties for service quality and limits liability to amounts paid in the preceding three months or $100 USD, whichever is greater.\" The 3-month lookback (vs. industry standard 12-month) makes the cap even lower in practice. $100 floor."
+      },
+      "data_collection_breadth": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Collects: username, password, email/phone, birthday, messages, posts, voice messages, custom emojis, files, payment info, friend lists, server participation, roles, IP, OS, browser type, device settings. Generally doesn't store voice/video call contents (advance notice if changed). From third parties: other users, social media, advertisers, data providers."
+      },
+      "third_party_sharing": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Discord prioritizes privacy and doesn't sell personal information.\" Business model is subscription-based, not ad-driven. Shares with: vendors (payment processors, cloud providers, analytics), related companies, legal compliance, business transitions. Aggregated/de-identified info shared. Less ad-partner sharing than ad-driven platforms."
+      },
+      "tracking_advertising": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Revenue from 'subscriptions, paid products, and sponsored content' -- not primarily ad-based. 'Sponsored content: Surfacing Quests and sponsored formats. Users can limit this.' Users can 'Limit data collection for service improvement' and 'Control personalization and sponsored content delivery.' Less aggressive than ad-driven platforms."
+      },
+      "data_retention_deletion": {
+        "score": 3,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"Personal information is retained until no longer needed for processing purposes or legal compliance. Specific retention periods are detailed in Discord's data retention policy.\" Offers both disable and full delete. Data export within 30 days in JSON format. Defers to separate retention policy for specifics."
+      },
+      "readability_honesty": {
+        "score": 4,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "Privacy Policy is well-structured with key principles up front: 'Discord prioritizes privacy and doesn't sell personal information.' Honest about data use: 'generally doesn't store video/voice call contents, though this could change with advance notice.' Business model clearly stated: 'revenue comes from subscriptions and sponsored content.' Relatively transparent."
+      },
+      "encryption_security": {
+        "score": 5,
+        "gap_flag": false,
+        "gap_note": "",
+        "evidence": "\"All information is encrypted in transit and at rest using TLS.\" \"Voice and video communications are end-to-end encrypted (verification available in-service).\" \"Technical and administrative access controls limit employee/contractor access.\" \"Two-factor authentication is available.\" E2E encryption for voice/video, encryption at rest, TLS in transit, 2FA -- the strongest security commitments of any platform analyzed."
+      },
+      "creator_monetization": {
+        "score": "N/A",
+        "gap_flag": false,
+        "gap_note": "Discord is not a creator monetization platform. While it has Nitro subscriptions and server subscriptions, these are platform features, not a creator revenue-sharing model comparable to YouTube, Twitch, Kick, Patreon, or Substack.",
+        "evidence": "Discord's business model is subscription-based (Nitro) and sponsored content (Quests). No creator revenue-sharing or payout system described in the ToS or Privacy Policy."
+      }
+    }
+  }
+]

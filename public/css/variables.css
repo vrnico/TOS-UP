@@ -1,0 +1,83 @@
+:root {
+  /* Colors - Light Theme (Wikipedia-style) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #eaecf0;
+  --bg-card: #ffffff;
+  --bg-hover: #f0f2f5;
+
+  --text-primary: #202122;
+  --text-secondary: #54595d;
+  --text-muted: #72777d;
+  --text-inverse: #ffffff;
+
+  --border-color: #a2a9b1;
+  --border-light: #c8ccd1;
+
+  /* Accent Colors */
+  --accent-primary: #3366cc;
+  --accent-secondary: #2a4b8d;
+  --accent-gradient: linear-gradient(135deg, #3366cc 0%, #2a4b8d 100%);
+
+  /* Risk Colors */
+  --risk-high: #d33;
+  --risk-medium: #ac6600;
+  --risk-low: #14866d;
+  --risk-critical: #b32424;
+
+  /* Category Colors */
+  --cat-privacy: #9b59b6;
+  --cat-legal: #2980b9;
+  --cat-content: #d4a017;
+  --cat-financial: #27ae60;
+  --cat-account: #e67e22;
+
+  /* Typography */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Layout */
+  --max-width: 1200px;
+  --sidebar-width: 280px;
+  --navbar-height: 64px;
+}

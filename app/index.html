@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOS SparkNotes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TOS SparkNotes</h1>
+        <p class="tagline">Paste a Terms of Service. Get the truth.</p>
+
+        <!-- Tab switcher -->
+        <div class="tabs">
+            <button class="tab active" data-tab="analyze">Red Flag Scan</button>
+            <button class="tab" data-tab="overlap">Cross-Product Overlap</button>
+        </div>
+
+        <!-- Tab 1: Original single-ToS analyzer -->
+        <div id="tab-analyze" class="tab-content active">
+            <textarea id="tosInput" placeholder="Paste a Terms of Service agreement here..."></textarea>
+            <button id="analyzeBtn">Analyze</button>
+        </div>
+
+        <!-- Tab 2: Overlap comparison -->
+        <div id="tab-overlap" class="tab-content">
+            <p class="tab-desc">Paste ToS from two products by the same company to check if agreeing to one could bind you to the other. <span class="disney-ref">Inspired by Piccolo v. Disney (2024).</span></p>
+
+            <div class="overlap-inputs">
+                <div class="overlap-col">
+                    <label for="overlapNameA">Product A name</label>
+                    <input type="text" id="overlapNameA" placeholder="e.g. Disney+" />
+                    <label for="overlapInputA">Product A ToS</label>
+                    <textarea id="overlapInputA" placeholder="Paste first product's Terms of Service..."></textarea>
+                </div>
+                <div class="overlap-col">
+                    <label for="overlapNameB">Product B name</label>
+                    <input type="text" id="overlapNameB" placeholder="e.g. Disney Parks" />
+                    <label for="overlapInputB">Product B ToS</label>
+                    <textarea id="overlapInputB" placeholder="Paste second product's Terms of Service..."></textarea>
+                </div>
+            </div>
+
+            <input type="text" id="parentCompany" placeholder="Parent company (optional, e.g. The Walt Disney Company)" class="parent-input" />
+            <button id="overlapBtn">Check Overlap</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

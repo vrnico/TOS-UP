@@ -1,0 +1,124 @@
+body {
+  font-family: var(--font-family);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* App shell */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding-top: var(--navbar-height);
+}
+
+/* Container widths */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1400px;
+}
+
+/* Page wrapper */
+.page {
+  padding: var(--space-2xl) 0;
+}
+
+/* Grid system */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Two-column layout (content + sidebar) */
+.layout-sidebar {
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.layout-sidebar--right {
+  grid-template-columns: 1fr var(--sidebar-width);
+}
+
+/* Flex utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* Section spacing */
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.section-header {
+  margin-bottom: var(--space-lg);
+}
+
+.section-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-sidebar,
+  .layout-sidebar--right {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .page {
+    padding: var(--space-lg) 0;
+  }
+
+  .hide-mobile { display: none; }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-4xl: 2rem;
+    --text-3xl: 1.5rem;
+  }
+}
