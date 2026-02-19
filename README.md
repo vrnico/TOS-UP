@@ -116,6 +116,19 @@ That's it. No PR needed for braindumps -- just push your branch and we'll read t
 
 ---
 
+## ELO Battle Arena (Pokemon-Style TOS Rankings)
+
+Every company's Terms of Service gets scored across multiple dimensions -- privacy, creator rights, transparency, safety, and accountability. The **ELO Battle Arena** pits companies against each other head-to-head, Pokemon-style:
+
+- **Type advantages matter.** Each matchup randomly selects a battlefield dimension. A company that's strong in Privacy can beat one with a higher overall score if the battle lands on a Privacy field. No company is universally best -- it depends on what you're measuring.
+- **Color = type profile.** Each company gets an RGB color blended from its type scores. Blue-ish means privacy-focused. Green-ish means creator-friendly. Purple means safety-strong. You can read a company's priorities at a glance.
+- **ELO rankings shift after every battle.** Win streaks push companies up the leaderboard. Upsets cause big swings. The system rewards consistency across dimensions, not just raw scores.
+- **22 scoring dimensions** across TOS and Privacy Policies, from AI/ML training rights and content licensing to anti-harassment protections and cross-border data safety.
+
+Platforms currently scored: TikTok, Instagram/Meta, Discord, Reddit, YouTube, Twitch, X/Twitter, Snapchat, LinkedIn, Kick, Substack, and Patreon.
+
+---
+
 ## Project Structure (So Far)
 
 ```
